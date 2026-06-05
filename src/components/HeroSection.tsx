@@ -351,7 +351,7 @@ const HeroSection = () => {
                                                 animate={{ opacity: 1, scale: 1, y: 0 }}
                                                 exit={{ opacity: 0, scale: 0.95, y: 10 }}
                                                 transition={{ type: "spring", stiffness: 300, damping: 25 }}
-                                                className={`absolute w-[85%] md:w-[460px] lg:w-[540px] h-[75%] md:h-[260px] lg:h-[300px] bg-[#FDFBF7]/95 backdrop-blur-2xl rounded-xl border border-white/50 overflow-hidden flex flex-col pointer-events-auto shadow-2xl ${isFocused ? 'ring-2 ring-white/20' : ''}`}
+                                                className={`absolute w-[85%] md:w-[400px] lg:w-[460px] h-[75%] md:h-[220px] lg:h-[260px] bg-[#FDFBF7]/95 backdrop-blur-2xl rounded-xl border border-white/50 overflow-hidden flex flex-col pointer-events-auto shadow-2xl ${isFocused ? 'ring-2 ring-white/20' : ''}`}
                                                 style={{
                                                     zIndex: isFocused ? highestZIndex : highestZIndex - 1,
                                                     top: initialTop,
