@@ -249,7 +249,7 @@ const HeroSection = () => {
             </div>
 
             <motion.div
-                className="relative w-full max-w-[1050px] flex flex-col items-center z-10 px-4 md:px-8 mt-4 md:mt-8"
+                className="relative w-full max-w-[850px] flex flex-col items-center z-10 px-4 md:px-8 mt-4 md:mt-8"
             >
                 {/* --- THE PHYSICAL RETRO MONITOR COMPONENT --- */}
                 <div className="w-full aspect-[4/5] sm:aspect-square md:aspect-[16/11] lg:aspect-[16/10] bg-[#E5E0D5] rounded-[2rem] md:rounded-[3rem] p-4 md:p-10 shadow-[0_40px_80px_rgba(0,0,0,0.2),inset_0_2px_5px_rgba(255,255,255,0.8)] border-t border-white border-b-[20px] md:border-b-[30px] border-[#C4BBA5] flex flex-col relative z-20">
