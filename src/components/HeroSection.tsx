@@ -11,6 +11,7 @@ import visitHyderabadImg from "@/assets/visithyderabad.png";
 import codeNyxImg from "@/assets/codenyx.png";
 import gdgcvrImg from "@/assets/gdgcvr.png";
 import gtmImg from "@/assets/gtm.png";
+import squirtleSquadImg from "@/assets/squirtle-squad.png";
 
 const projects = [
     {
@@ -139,7 +140,7 @@ const HeroSection = () => {
     const [openWindows, setOpenWindows] = useState<string[]>([]);
     const [activeWindow, setActiveWindow] = useState<string | null>(null);
     const [highestZIndex, setHighestZIndex] = useState(60);
-    
+
     // Interactive Mouse Tracking for Background
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
@@ -160,7 +161,7 @@ const HeroSection = () => {
             setTimeout(() => {
                 setIsBooting(false);
                 setHasBootedBefore(true);
-            }, 3500);
+            }, 6500);
         } else {
             setIsPoweredOn(!isPoweredOn);
         }
@@ -202,7 +203,7 @@ const HeroSection = () => {
             <div className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay z-[5]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.8\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")' }}></div>
 
             {/* INTERACTIVE SPOTLIGHT GRID */}
-            <div 
+            <div
                 className="absolute inset-0 z-[-1] pointer-events-none"
                 style={{
                     backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 0, 0, 0.06) 1px, transparent 1px)',
@@ -213,15 +214,15 @@ const HeroSection = () => {
             />
 
             {/* FLOATING GEOMETRIC SHAPES */}
-            <motion.div 
-                animate={{ rotate: 360, y: [0, -30, 0] }} 
+            <motion.div
+                animate={{ rotate: 360, y: [0, -30, 0] }}
                 transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-                className="absolute top-[15%] left-[10%] w-48 h-48 border border-[#E2725B]/20 rounded-full z-[-1] pointer-events-none" 
+                className="absolute top-[15%] left-[10%] w-48 h-48 border border-[#E2725B]/20 rounded-full z-[-1] pointer-events-none"
             />
-            <motion.div 
-                animate={{ rotate: -360, y: [0, 40, 0] }} 
+            <motion.div
+                animate={{ rotate: -360, y: [0, 40, 0] }}
                 transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-                className="absolute bottom-[20%] right-[10%] w-64 h-64 border border-os-tealdark/10 rounded-sm rotate-45 z-[-1] pointer-events-none" 
+                className="absolute bottom-[20%] right-[10%] w-64 h-64 border border-os-tealdark/10 rounded-sm rotate-45 z-[-1] pointer-events-none"
             />
 
             {/* RADIAL GLOW BEHIND THE MONITOR */}
@@ -230,7 +231,7 @@ const HeroSection = () => {
             {/* TECHNICAL GRID & CROSSHAIRS */}
             <div className="absolute top-0 bottom-0 left-1/2 w-[1px] bg-os-tealdark/5 z-0 pointer-events-none hidden md:block"></div>
             <div className="absolute top-1/2 left-0 right-0 h-[1px] bg-os-tealdark/5 z-0 pointer-events-none hidden md:block"></div>
-            
+
             <div className="absolute top-24 left-8 md:top-32 md:left-24 w-6 h-6 z-0 pointer-events-none flex items-center justify-center opacity-20"><div className="absolute w-full h-[1px] bg-os-tealdark"></div><div className="absolute h-full w-[1px] bg-os-tealdark"></div></div>
             <div className="absolute top-24 right-8 md:top-32 md:right-24 w-6 h-6 z-0 pointer-events-none flex items-center justify-center opacity-20"><div className="absolute w-full h-[1px] bg-os-tealdark"></div><div className="absolute h-full w-[1px] bg-os-tealdark"></div></div>
             <div className="absolute bottom-24 left-8 md:bottom-32 md:left-24 w-6 h-6 z-0 pointer-events-none flex items-center justify-center opacity-20"><div className="absolute w-full h-[1px] bg-os-tealdark"></div><div className="absolute h-full w-[1px] bg-os-tealdark"></div></div>
@@ -262,30 +263,69 @@ const HeroSection = () => {
 
                             <AnimatePresence mode="wait">
                                 {isPoweredOn && isBooting && (
-                                    <motion.div 
+                                    <motion.div
                                         key="boot-sequence"
                                         initial={{ opacity: 0 }}
                                         animate={{ opacity: 1 }}
                                         exit={{ opacity: 0, transition: { duration: 0.8 } }}
-                                        className="absolute inset-0 bg-[#050808] z-40 flex items-center justify-center pointer-events-none"
+                                        className="absolute inset-0 bg-[#050808] z-[110] flex items-center justify-center pointer-events-none"
                                     >
-                                        <motion.div 
-                                            initial="hidden" 
-                                            animate="visible" 
-                                            variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
-                                            className="text-[#E2725B] font-mono text-lg md:text-2xl font-bold tracking-widest flex items-center"
-                                        >
-                                            {"Hi, I'm Sreeja Sadhu".split("").map((char, i) => (
-                                                <motion.span key={i} variants={{ hidden: { opacity: 0, display: "none" }, visible: { opacity: 1, display: "inline-block" } }}>
-                                                    {char === " " ? "\u00A0" : char}
-                                                </motion.span>
-                                            ))}
-                                            <motion.span 
-                                                animate={{ opacity: [1, 0, 1] }} 
-                                                transition={{ repeat: Infinity, duration: 0.8 }}
-                                                className="w-3 h-5 bg-[#E2725B] ml-1 inline-block"
-                                            ></motion.span>
-                                        </motion.div>
+                                        <div className="relative w-full h-full flex items-center justify-center">
+                                            <motion.div
+                                                initial={{ opacity: 1 }}
+                                                animate={{ opacity: 0 }}
+                                                transition={{ delay: 3.5, duration: 0.5 }}
+                                                className="absolute inset-0 flex items-center justify-center pointer-events-none"
+                                            >
+                                                <motion.div
+                                                    initial="hidden"
+                                                    animate="visible"
+                                                    variants={{ visible: { transition: { staggerChildren: 0.1, delayChildren: 0.5 } } }}
+                                                    className="text-[#E2725B] font-mono text-lg md:text-2xl font-bold tracking-widest flex items-center"
+                                                >
+                                                    {"Hi, I'm Sreeja Sadhu".split("").map((char, i) => (
+                                                        <motion.span key={i} variants={{ hidden: { opacity: 0, display: "none" }, visible: { opacity: 1, display: "inline-block" } }}>
+                                                            {char === " " ? "\u00A0" : char}
+                                                        </motion.span>
+                                                    ))}
+                                                    <motion.span
+                                                        animate={{ opacity: [1, 0, 1] }}
+                                                        transition={{ repeat: Infinity, duration: 0.8 }}
+                                                        className="w-3 h-5 bg-[#E2725B] ml-1 inline-block"
+                                                    ></motion.span>
+                                                </motion.div>
+                                            </motion.div>
+
+                                            <motion.div
+                                                initial={{ opacity: 0, scale: 0.95 }}
+                                                animate={{ opacity: 1, scale: 1 }}
+                                                transition={{ delay: 3.8, duration: 0.3, ease: "easeOut" }}
+                                                className="absolute inset-0 flex items-center justify-center gap-6 md:gap-10 pointer-events-none px-8"
+                                            >
+                                                <img
+                                                    src={squirtleSquadImg}
+                                                    alt="Squirtle Squad Mascot"
+                                                    className="w-24 h-24 md:w-32 md:h-32 object-contain shrink-0"
+                                                />
+                                                <motion.div
+                                                    initial="hidden"
+                                                    animate="visible"
+                                                    variants={{ visible: { transition: { staggerChildren: 0.05, delayChildren: 4.1 } } }}
+                                                    className="text-[#60A5FA] font-mono text-sm md:text-lg font-bold max-w-[200px] md:max-w-[250px] leading-tight"
+                                                >
+                                                    {"Shell Yeah!!".split("").map((char, i) => (
+                                                        <motion.span key={i} variants={{ hidden: { opacity: 0, display: "none" }, visible: { opacity: 1, display: "inline" } }}>
+                                                            {char}
+                                                        </motion.span>
+                                                    ))}
+                                                    <motion.span
+                                                        animate={{ opacity: [1, 0, 1] }}
+                                                        transition={{ repeat: Infinity, duration: 0.8 }}
+                                                        className="w-2 h-4 bg-[#60A5FA] ml-1 inline-block align-middle"
+                                                    ></motion.span>
+                                                </motion.div>
+                                            </motion.div>
+                                        </div>
                                     </motion.div>
                                 )}
 
@@ -332,85 +372,85 @@ const HeroSection = () => {
 
                                             {/* Draggable Windows */}
                                             <AnimatePresence>
-                                    {projects.map((p, i) => {
-                                        if (!openWindows.includes(p.id)) return null;
+                                                {projects.map((p, i) => {
+                                                    if (!openWindows.includes(p.id)) return null;
 
-                                        const isFocused = activeWindow === p.id;
-                                        const initialTop = typeof window !== 'undefined' && window.innerWidth < 768 ? '5%' : `${5 + (i * 2)}%`;
-                                        const initialLeft = typeof window !== 'undefined' && window.innerWidth < 768 ? '5%' : `${15 + (i * 3)}%`;
+                                                    const isFocused = activeWindow === p.id;
+                                                    const initialTop = typeof window !== 'undefined' && window.innerWidth < 768 ? '5%' : `${5 + (i * 2)}%`;
+                                                    const initialLeft = typeof window !== 'undefined' && window.innerWidth < 768 ? '5%' : `${15 + (i * 3)}%`;
 
-                                        return (
-                                            <motion.div
-                                                key={p.id}
-                                                drag
-                                                dragConstraints={desktopRef}
-                                                dragElastic={0.1}
-                                                dragMomentum={false}
-                                                onPointerDown={() => focusWindow(p.id)}
-                                                initial={{ opacity: 0, scale: 0.95, y: 20 }}
-                                                animate={{ opacity: 1, scale: 1, y: 0 }}
-                                                exit={{ opacity: 0, scale: 0.95, y: 10 }}
-                                                transition={{ type: "spring", stiffness: 300, damping: 25 }}
-                                                className={`absolute w-[85%] md:w-[460px] lg:w-[540px] h-[75%] md:h-[260px] lg:h-[300px] bg-[#FDFBF7]/95 backdrop-blur-2xl rounded-xl border border-white/50 overflow-hidden flex flex-col pointer-events-auto shadow-2xl ${isFocused ? 'ring-2 ring-white/20' : ''}`}
-                                                style={{
-                                                    zIndex: isFocused ? highestZIndex : highestZIndex - 1,
-                                                    top: initialTop,
-                                                    left: initialLeft
-                                                }}
-                                            >
-                                                {/* Window Chrome / Titlebar */}
-                                                <div className="h-8 md:h-10 bg-white/50 border-b border-os-tealdark/5 flex items-center px-4 justify-between cursor-grab active:cursor-grabbing shrink-0">
-                                                    <div className="flex items-center gap-2">
-                                                        <button
-                                                            onClick={(e) => closeWindow(p.id, e)}
-                                                            onPointerDown={(e) => e.stopPropagation()}
-                                                            className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-[#FF5F56] border border-[#E0443E] hover:brightness-110 flex items-center justify-center group/close transition-all"
+                                                    return (
+                                                        <motion.div
+                                                            key={p.id}
+                                                            drag
+                                                            dragConstraints={desktopRef}
+                                                            dragElastic={0.1}
+                                                            dragMomentum={false}
+                                                            onPointerDown={() => focusWindow(p.id)}
+                                                            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                                                            animate={{ opacity: 1, scale: 1, y: 0 }}
+                                                            exit={{ opacity: 0, scale: 0.95, y: 10 }}
+                                                            transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                                                            className={`absolute w-[85%] md:w-[460px] lg:w-[540px] h-[75%] md:h-[260px] lg:h-[300px] bg-[#FDFBF7]/95 backdrop-blur-2xl rounded-xl border border-white/50 overflow-hidden flex flex-col pointer-events-auto shadow-2xl ${isFocused ? 'ring-2 ring-white/20' : ''}`}
+                                                            style={{
+                                                                zIndex: isFocused ? highestZIndex : highestZIndex - 1,
+                                                                top: initialTop,
+                                                                left: initialLeft
+                                                            }}
                                                         >
-                                                            <svg className="w-1.5 h-1.5 text-black/50 opacity-0 group-hover/close:opacity-100" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M6 18L18 6M6 6l12 12" /></svg>
-                                                        </button>
-                                                        <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-[#FFBD2E] border border-[#DEA123]"></div>
-                                                        <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-[#27C93F] border border-[#1AAB29]"></div>
-                                                    </div>
-                                                    <span className="font-mono text-[9px] md:text-[10px] text-os-tealdark/60 font-bold uppercase tracking-[0.2em] pointer-events-none select-none">
-                                                        {p.title}.exe
-                                                    </span>
-                                                    <div className="w-10"></div>
-                                                </div>
+                                                            {/* Window Chrome / Titlebar */}
+                                                            <div className="h-8 md:h-10 bg-white/50 border-b border-os-tealdark/5 flex items-center px-4 justify-between cursor-grab active:cursor-grabbing shrink-0">
+                                                                <div className="flex items-center gap-2">
+                                                                    <button
+                                                                        onClick={(e) => closeWindow(p.id, e)}
+                                                                        onPointerDown={(e) => e.stopPropagation()}
+                                                                        className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-[#FF5F56] border border-[#E0443E] hover:brightness-110 flex items-center justify-center group/close transition-all"
+                                                                    >
+                                                                        <svg className="w-1.5 h-1.5 text-black/50 opacity-0 group-hover/close:opacity-100" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M6 18L18 6M6 6l12 12" /></svg>
+                                                                    </button>
+                                                                    <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-[#FFBD2E] border border-[#DEA123]"></div>
+                                                                    <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-[#27C93F] border border-[#1AAB29]"></div>
+                                                                </div>
+                                                                <span className="font-mono text-[9px] md:text-[10px] text-os-tealdark/60 font-bold uppercase tracking-[0.2em] pointer-events-none select-none">
+                                                                    {p.title}.exe
+                                                                </span>
+                                                                <div className="w-10"></div>
+                                                            </div>
 
-                                                {/* Window Content */}
-                                                <div className="flex-1 overflow-y-auto p-3 md:p-5 custom-scrollbar bg-gradient-to-b from-transparent to-os-tealdark/[0.02]">
-                                                    <div className="flex flex-col sm:flex-row gap-4 h-full">
-                                                        <div className="w-full sm:w-[150px] lg:w-[190px] shrink-0 h-32 sm:h-auto min-h-[140px] rounded-lg shadow-sm border border-os-tealdark/10 overflow-hidden group relative bg-white">
-                                                            <img src={p.imageUrl} className="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out" alt={p.title} />
-                                                        </div>
-                                                        <div className="flex flex-col gap-2.5 flex-1">
-                                                            <h3 className="text-lg md:text-xl font-semibold text-os-tealdark leading-tight font-sans tracking-tight">
-                                                                {p.title}
-                                                            </h3>
-                                                            <p className="text-xs md:text-sm text-os-tealdark/70 leading-relaxed font-sans">
-                                                                {p.description}
-                                                            </p>
-                                                            <div className="flex flex-wrap gap-1.5 mt-1">
-                                                                {p.tags.map(tag => (
-                                                                    <span key={tag} className="px-2 py-0.5 rounded-md bg-os-tealdark/5 text-os-tealdark/70 text-[10px] md:text-xs font-medium border border-os-tealdark/10 font-sans tracking-wide">
-                                                                        {tag}
-                                                                    </span>
-                                                                ))}
+                                                            {/* Window Content */}
+                                                            <div className="flex-1 overflow-y-auto p-3 md:p-5 custom-scrollbar bg-gradient-to-b from-transparent to-os-tealdark/[0.02]">
+                                                                <div className="flex flex-col sm:flex-row gap-4 h-full">
+                                                                    <div className="w-full sm:w-[150px] lg:w-[190px] shrink-0 h-32 sm:h-auto min-h-[140px] rounded-lg shadow-sm border border-os-tealdark/10 overflow-hidden group relative bg-white">
+                                                                        <img src={p.imageUrl} className="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out" alt={p.title} />
+                                                                    </div>
+                                                                    <div className="flex flex-col gap-2.5 flex-1">
+                                                                        <h3 className="text-lg md:text-xl font-semibold text-os-tealdark leading-tight font-sans tracking-tight">
+                                                                            {p.title}
+                                                                        </h3>
+                                                                        <p className="text-xs md:text-sm text-os-tealdark/70 leading-relaxed font-sans">
+                                                                            {p.description}
+                                                                        </p>
+                                                                        <div className="flex flex-wrap gap-1.5 mt-1">
+                                                                            {p.tags.map(tag => (
+                                                                                <span key={tag} className="px-2 py-0.5 rounded-md bg-os-tealdark/5 text-os-tealdark/70 text-[10px] md:text-xs font-medium border border-os-tealdark/10 font-sans tracking-wide">
+                                                                                    {tag}
+                                                                                </span>
+                                                                            ))}
+                                                                        </div>
+                                                                        <div className="flex gap-2 mt-2 pt-1 border-t border-os-tealdark/5">
+                                                                            <a href={p.liveUrl} target="_blank" rel="noreferrer" className="flex-1 text-center px-3 py-1.5 md:px-4 md:py-2 bg-os-tealdark text-white text-[9px] md:text-[10px] uppercase font-mono tracking-widest font-bold rounded hover:bg-[#4A8B8C] transition-colors shadow-sm">
+                                                                                Launch
+                                                                            </a>
+                                                                            <a href={p.githubUrl} target="_blank" rel="noreferrer" className="flex-1 text-center px-3 py-1.5 md:px-4 md:py-2 border border-os-tealdark/20 bg-white/50 text-os-tealdark text-[9px] md:text-[10px] uppercase font-mono tracking-widest font-bold rounded hover:bg-os-tealdark/5 transition-colors">
+                                                                                Source
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
                                                             </div>
-                                                            <div className="flex gap-2 mt-2 pt-1 border-t border-os-tealdark/5">
-                                                                <a href={p.liveUrl} target="_blank" rel="noreferrer" className="flex-1 text-center px-3 py-1.5 md:px-4 md:py-2 bg-os-tealdark text-white text-[9px] md:text-[10px] uppercase font-mono tracking-widest font-bold rounded hover:bg-[#4A8B8C] transition-colors shadow-sm">
-                                                                    Launch
-                                                                </a>
-                                                                <a href={p.githubUrl} target="_blank" rel="noreferrer" className="flex-1 text-center px-3 py-1.5 md:px-4 md:py-2 border border-os-tealdark/20 bg-white/50 text-os-tealdark text-[9px] md:text-[10px] uppercase font-mono tracking-widest font-bold rounded hover:bg-os-tealdark/5 transition-colors">
-                                                                    Source
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </motion.div>
-                                        );
-                                    })}
+                                                        </motion.div>
+                                                    );
+                                                })}
                                             </AnimatePresence>
                                         </div>
 
@@ -463,17 +503,17 @@ const HeroSection = () => {
                         </div>
 
                         {/* Physical Power Button */}
-                        <div 
+                        <div
                             onClick={handlePowerClick}
                             className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-[#E5E0D5] shadow-[inset_0_-2px_5px_rgba(0,0,0,0.1),0_2px_4px_rgba(255,255,255,0.8),-2px_-2px_4px_rgba(0,0,0,0.1)] border border-[#C4BBA5] flex items-center justify-center cursor-pointer active:scale-95 transition-transform group"
                         >
-                            <motion.div 
-                                animate={isPoweredOn 
-                                    ? { backgroundColor: "#22c55e", boxShadow: "0 0 10px rgba(34,197,94,0.8)", opacity: 1 } 
+                            <motion.div
+                                animate={isPoweredOn
+                                    ? { backgroundColor: "#22c55e", boxShadow: "0 0 10px rgba(34,197,94,0.8)", opacity: 1 }
                                     : { backgroundColor: ["#22c55e", "#14532d", "#22c55e"], boxShadow: ["0 0 8px rgba(34,197,94,0.6)", "0 0 0px rgba(34,197,94,0)", "0 0 8px rgba(34,197,94,0.6)"], opacity: [1, 0.4, 1] }
                                 }
-                                transition={isPoweredOn 
-                                    ? { duration: 0.2 } 
+                                transition={isPoweredOn
+                                    ? { duration: 0.2 }
                                     : { repeat: Infinity, duration: 1.5, ease: "easeInOut" }
                                 }
                                 className="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full"
